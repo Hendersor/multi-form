@@ -1,0 +1,66 @@
+$marine-blue: hsl(213, 96%, 18%);
+$purplish-blue: hsl(243, 100%, 62%);
+$pastel-blue: hsl(228, 100%, 84%);
+$light-blue: hsl(206, 94%, 87%);
+$strawberry-red: hsl(354, 84%, 57%);
+
+$cool-gray: hsl(231, 11%, 63%);
+$light-gray: hsl(229, 24%, 87%);
+$magnolia: hsl(217, 100%, 97%);
+$white: hsl(0, 0%, 100%);
+
+$ubuntu: "Ubuntu", sans-serif;
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: $magnolia;
+
+  .main-container {
+    background-color: $white;
+    //     border: 1px solid red;
+    width: 100%;
+    height: 100vh;
+
+    .main-container__steps {
+      padding: 0 80px 60px 80px;
+      border: 1px solid black;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 28%;
+      background-image: url("https://res.cloudinary.com/dwdz4mn27/image/upload/v1674206503/multi-step-form-main/assets/images/bg-sidebar-mobile_tkycab.svg");
+      .main-container__steps__steps--container {
+        //    border: 1px solid blue;
+        .main-container__steps__steps--container__number {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          height: 35px;
+          width: 35px;
+          border: 1px solid $white;
+          font-family: $ubuntu;
+          font-weight: 700;
+          background-color: transparent;
+          font-size: 1.5rem;
+          color: white;
+        }
+        .main-container__steps__steps--container__text {
+          display: none;
+        }
+      }
+    }
+
+    .main-container__form {
+    }
+  }
+}

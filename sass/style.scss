@@ -37,6 +37,10 @@ body {
       position: relative;
       height: 28%;
       background-image: url("https://res.cloudinary.com/dwdz4mn27/image/upload/v1674206503/multi-step-form-main/assets/images/bg-sidebar-mobile_tkycab.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
       .main-container__steps__steps--container {
         .main-container__steps__steps--container__number {
           display: flex;
@@ -126,7 +130,7 @@ body {
 
     .main-container__plan {
       position: relative;
-      height: 430px;
+      height: 500px;
       width: 350px;
       top: -13%;
       right: 50%;
@@ -134,6 +138,68 @@ body {
       border-radius: 15px;
       padding: 25px;
       background-color: $white;
+
+      .main-container__plan__options__swich {
+        display: flex;
+        justify-content: space-between;
+        width: 50%;
+        margin: 0 auto;
+
+        h1 {
+          color: $cool-gray;
+          font-weight: 500;
+        }
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 38px;
+          height: 18px;
+        }
+
+        .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: $marine-blue;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 10px;
+          width: 10px;
+          left: 4px;
+          bottom: 4px;
+          background-color: $white;
+          -webkit-transition: 0.4s;
+          transition: 0.4s;
+        }
+
+        input:checked + .slider:before {
+          -webkit-transform: translateX(21px);
+          -ms-transform: translateX(21px);
+          transform: translateX(21px);
+        }
+
+        .slider.round {
+          border-radius: 34px;
+        }
+
+        .slider.round:before {
+          border-radius: 50%;
+        }
+      }
 
       .main-container__plan__text {
         display: flex;
@@ -155,7 +221,7 @@ body {
       }
 
       .main-container__plan__options {
-        height: 310px;
+        height: 370px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -168,6 +234,7 @@ body {
           justify-content: left;
           align-items: center;
           padding: 10px;
+          cursor: pointer;
 
           .main-container__plan__options__container__img {
             height: 80%;
@@ -206,19 +273,19 @@ body {
       justify-content: space-between;
       align-items: center;
       position: absolute;
-      bottom: 0;
       height: 60px;
       width: 100%;
-      padding: 0 20 0 20;
+      padding: 0 20px 0 20px;
       background-color: $white;
       button {
-        height: 35px;
+        height: 40px;
         width: 90px;
         border: none;
         border-radius: 5px;
         font-size: 1.5rem;
         font-weight: 500;
         font-family: $ubuntu;
+        cursor: pointer;
       }
 
       .main-container__buttons-next {

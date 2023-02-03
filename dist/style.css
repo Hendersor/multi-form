@@ -48,6 +48,9 @@ body .main-container .main-container__steps .main-container__steps__steps--conta
 body .main-container .main-container__form.visible {
   display: none;
 }
+body .main-container .visible {
+  display: none;
+}
 body .main-container .main-container__form {
   height: 400px;
   width: 350px;
@@ -229,6 +232,31 @@ body .main-container .main-container__plan .main-container__plan__options .main-
   font-weight: 500;
   font-size: 1.2rem;
 }
+body .main-container .main-container__pick-container {
+  position: relative;
+  height: 300px;
+  width: 330px;
+  background-color: hsl(0deg, 0%, 100%);
+  top: -13%;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+body .main-container .main-container__pick-container .main-container__pick-container__text {
+  height: 110px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body .main-container .main-container__pick-container .main-container__pick-container__text h1 {
+  color: hsl(213deg, 96%, 18%);
+  font-size: 2.2rem;
+}
+body .main-container .main-container__pick-container .main-container__pick-container__text p {
+  color: hsl(231deg, 11%, 63%);
+  font-size: 1.5rem;
+  line-height: 20px;
+}
 body .main-container .main-container__buttons {
   display: flex;
   justify-content: space-between;
@@ -238,6 +266,7 @@ body .main-container .main-container__buttons {
   width: 100%;
   padding: 0 20px 0 20px;
   background-color: hsl(0deg, 0%, 100%);
+  bottom: 0;
 }
 body .main-container .main-container__buttons button {
   height: 40px;
@@ -256,4 +285,73 @@ body .main-container .main-container__buttons .main-container__buttons-next {
 body .main-container .main-container__buttons .main-container__buttons-back {
   background-color: transparent;
   color: hsl(231deg, 11%, 63%);
+}
+body .main-container .main-container__extras-container {
+  position: relative;
+  height: 300px;
+  width: 330px;
+  background-color: hsl(0deg, 0%, 100%);
+  top: -13%;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding: 15px;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__text {
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__text h1 {
+  color: hsl(213deg, 96%, 18%);
+  font-size: 2.4rem;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__text p {
+  color: hsl(231deg, 11%, 63%);
+  font-size: 1.6rem;
+  line-height: 20px;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks {
+  border: 1px solid hsl(229deg, 24%, 87%);
+  height: 60px;
+  border-radius: 8px;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks input[type=checkbox] {
+  height: 1.8rem;
+  width: 1.8rem;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks input[type=checkbox]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em hsl(243deg, 100%, 62%);
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks input[type=checkbox]:checked::before {
+  transform: scale(1);
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks .main-container__extras-container__picks__container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks .main-container__extras-container__picks__container .main-container__extras-container__picks__container__option {
+  height: 33px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks .main-container__extras-container__picks__container .main-container__extras-container__picks__container-price {
+  color: hsl(243deg, 100%, 62%);
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks .main-container__extras-container__picks__container h1 {
+  color: hsl(213deg, 96%, 18%);
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks .main-container__extras-container__picks__container p {
+  color: hsl(231deg, 11%, 63%);
+  font-size: 1.1rem;
 }/*# sourceMappingURL=style.css.map */

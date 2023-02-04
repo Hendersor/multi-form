@@ -333,7 +333,7 @@ body {
 
     .main-container__extras-container {
       position: relative;
-      height: 300px;
+      height: 350px;
       width: 330px;
       background-color: $white;
       top: -13%;
@@ -359,10 +359,10 @@ body {
       }
 
       .main-container__extras-container__picks {
-        border: 1px solid $light-gray;
-        height: 60px;
-        border-radius: 8px;
-
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         input[type="checkbox"] {
           height: 1.8rem;
           width: 1.8rem;
@@ -386,11 +386,16 @@ body {
           justify-content: space-evenly;
           align-items: center;
           height: 100%;
+          border: 1px solid $light-gray;
+          height: 60px;
+          border-radius: 8px;
+
           .main-container__extras-container__picks__container__option {
             height: 33px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            width: 150px;
           }
           .main-container__extras-container__picks__container-price {
             color: $purplish-blue;
@@ -403,6 +408,111 @@ body {
           p {
             color: $cool-gray;
             font-size: 1.1rem;
+          }
+        }
+      }
+    }
+
+    .main-container__summary-container {
+      position: relative;
+      height: 400px;
+      width: 330px;
+      background-color: $white;
+      top: -13%;
+      margin: 0 auto;
+      border-radius: 15px;
+
+      .main-container__summary-container__info-container {
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 15px;
+        h1 {
+          color: $marine-blue;
+          font-size: 2.4rem;
+        }
+
+        p {
+          color: $cool-gray;
+          font-size: 1.6rem;
+          line-height: 20px;
+        }
+      }
+
+      .main-container__summary-container__pay-summary {
+        height: 250px;
+        .main-container__summary-container__pay-summary__plan-container {
+          border-bottom: 1px solid $light-gray;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 15px 0 15px;
+          height: 60px;
+          margin-bottom: 10px;
+          h3 {
+            display: flex;
+            flex-direction: column;
+            height: 34px;
+            font-size: 1.4rem;
+            color: $marine-blue;
+            a {
+              color: $cool-gray;
+              font-style: none;
+              font-weight: 400;
+            }
+          }
+
+          p {
+            color: $marine-blue;
+            font-size: 1.5rem;
+            font-weight: 700;
+          }
+        }
+        .main-container__summary-container__extras-summary {
+          height: auto;
+
+          .main-container__summary-container__extras-summary__extra-container {
+            height: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px 0 15px;
+
+            h3 {
+              font-size: 1.4rem;
+              color: $cool-gray;
+              font-weight: 400;
+            }
+
+            p {
+              color: $marine-blue;
+              font-size: 1.4rem;
+            }
+          }
+        }
+
+        .main-container__summary-container__extras-summary__extra-container:nth-child(
+            2
+          ) {
+          margin-bottom: 60px;
+        }
+
+        .main-container__summary-container__extras-summary__total-container {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 15px 0 15px;
+          h3 {
+            font-size: 1.4rem;
+            color: $cool-gray;
+            font-weight: 400;
+          }
+
+          p {
+            color: $purplish-blue;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-size: 1.6rem;
           }
         }
       }

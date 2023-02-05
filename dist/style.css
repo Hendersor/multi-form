@@ -14,7 +14,10 @@ body {
 }
 body .main-container {
   width: 100%;
-  height: 100vh;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 body .main-container .main-container__steps {
   padding: 0 80px 60px 80px;
@@ -56,7 +59,7 @@ body .main-container .main-container__form {
   width: 350px;
   background-color: hsl(0deg, 0%, 100%);
   position: absolute;
-  top: 15%;
+  top: 18%;
   right: 50%;
   left: 4%;
   border-radius: 15px;
@@ -73,7 +76,7 @@ body .main-container .main-container__form .main-container__form__info {
 }
 body .main-container .main-container__form .main-container__form__info h1 {
   color: hsl(213deg, 96%, 18%);
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
 body .main-container .main-container__form .main-container__form__info p {
   font-size: 1.5rem;
@@ -89,7 +92,7 @@ body .main-container .main-container__form .main-container__form__input-containe
 body .main-container .main-container__form .main-container__form__input-container .main-container__form__input-container__input h2 {
   font-weight: 400;
   color: hsl(213deg, 96%, 18%);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 body .main-container .main-container__form .main-container__form__input-container .main-container__form__input-container__input ::-moz-placeholder {
   color: hsl(231deg, 11%, 63%);
@@ -108,7 +111,7 @@ body .main-container .main-container__form .main-container__form__input-containe
 }
 body .main-container .main-container__form .main-container__form__input-container .main-container__form__input-container__input input {
   width: 100%;
-  height: 35px;
+  height: 40px;
   border: 1px solid hsl(229deg, 24%, 87%);
   border-color: hsl(229deg, 24%, 87%);
   outline: none;
@@ -116,11 +119,10 @@ body .main-container .main-container__form .main-container__form__input-containe
 }
 body .main-container .main-container__plan {
   position: relative;
-  height: 500px;
+  height: 470px;
   width: 350px;
-  top: -13%;
-  right: 50%;
-  left: 3%;
+  top: -8%;
+  margin: 0 auto;
   border-radius: 15px;
   padding: 25px;
   background-color: hsl(0deg, 0%, 100%);
@@ -201,11 +203,11 @@ body .main-container .main-container__plan .main-container__plan__options {
 body .main-container .main-container__plan .main-container__plan__options .main-container__plan__options__container {
   border-radius: 15px;
   border: 1px solid hsl(213deg, 96%, 18%);
-  height: 90px;
+  height: 80px;
   display: flex;
   justify-content: left;
   align-items: center;
-  padding: 10px;
+  padding: 5px 10px;
   cursor: pointer;
 }
 body .main-container .main-container__plan .main-container__plan__options .main-container__plan__options__container .main-container__plan__options__container__img {
@@ -216,7 +218,7 @@ body .main-container .main-container__plan .main-container__plan__options .main-
   height: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 body .main-container .main-container__plan .main-container__plan__options .main-container__plan__options__container .main-container__plan__options__container__price h2 {
   color: hsl(213deg, 96%, 18%);
@@ -261,12 +263,10 @@ body .main-container .main-container__buttons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
   height: 60px;
   width: 100%;
   padding: 0 20px 0 20px;
   background-color: hsl(0deg, 0%, 100%);
-  bottom: 0;
 }
 body .main-container .main-container__buttons button {
   height: 40px;
@@ -362,7 +362,7 @@ body .main-container .main-container__extras-container .main-container__extras-c
 }
 body .main-container .main-container__summary-container {
   position: relative;
-  height: 400px;
+  height: 370px;
   width: 330px;
   background-color: hsl(0deg, 0%, 100%);
   top: -13%;

@@ -9,15 +9,14 @@ function showNextContainer() {
     .querySelector(".main-container")
     .querySelectorAll("section");
 
+  let actualContainer;
+  let sibling;
   mainContainer.forEach((container) => {
     if (!container.classList.contains("visible")) {
-      const actualContainer = container;
-      actualContainer.classList.add("visible");
-
-      const sibling = actualContainer.nextElementSibling;
-      sibling.classList.remove("visible");
-      console.log(sibling);
+      actualContainer = container;
+      sibling = actualContainer.nextElementSibling;
     }
   });
-  console.log(mainContainer);
+  actualContainer.classList.add("visible");
+  sibling.classList.remove("visible");
 }

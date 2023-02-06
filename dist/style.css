@@ -48,6 +48,14 @@ body .main-container .main-container__steps .main-container__steps__steps--conta
 body .main-container .main-container__steps .main-container__steps__steps--container .main-container__steps__steps--container__text {
   display: none;
 }
+body .main-container .main-container__steps .active {
+  background-color: hsl(206deg, 94%, 87%);
+  border-radius: 50%;
+}
+body .main-container .main-container__steps .active .main-container__steps__steps--container__number {
+  color: hsl(213deg, 96%, 18%);
+  border: none;
+}
 body .main-container .main-container__form.visible {
   display: none;
 }

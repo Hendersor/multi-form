@@ -63,6 +63,15 @@ body {
           display: none;
         }
       }
+      .active {
+        background-color: $light-blue;
+        border-radius: 50%;
+
+        .main-container__steps__steps--container__number {
+          color: $marine-blue;
+          border: none;
+        }
+      }
     }
 
     .main-container__form.visible {

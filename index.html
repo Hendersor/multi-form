@@ -56,7 +56,7 @@
           </div>
         </div>
       </div>
-      <form class="main-container__form" action="">
+      <section id="personalInfoContainer" class="main-container__form">
         <div class="main-container__form__info">
           <h1>Personal info</h1>
           <p>Please provide your name, email, address, and phone number.</p>
@@ -78,9 +78,9 @@
             <input type="number" placeholder="e.g. +1 234 567 890" />
           </div>
         </div>
-      </form>
+      </section>
 
-      <section class="main-container__plan visible">
+      <section id="selectPlanContainer" class="main-container__plan visible">
         <div class="main-container__plan__text">
           <h1>Select your plan</h1>
           <p>You have the option of monthly or yearly billing.</p>
@@ -147,7 +147,10 @@
         </div>
       </section>
 
-      <section class="main-container__extras-container visible">
+      <section
+        id="extrasContainer"
+        class="main-container__extras-container visible"
+      >
         <div class="main-container__extras-container__text">
           <h1>Pick add-ons</h1>
           <p>Add-ons help enhance your gaming experience.</p>
@@ -195,7 +198,10 @@
         </div>
       </section>
 
-      <section class="main-container__summary-container visible">
+      <section
+        id="summaryContainer"
+        class="main-container__summary-container visible"
+      >
         <div class="main-container__summary-container__info-container">
           <h1>Finishing up</h1>
           <p>Double-check everything looks OK before confirming</p>
@@ -233,7 +239,10 @@
         </div>
       </section>
 
-      <section class="main-container__finish-container visible">
+      <section
+        id="thankYouContainer"
+        class="main-container__finish-container visible"
+      >
         <figure class="main-container__finish-container__icon-container">
           <img
             src="https://res.cloudinary.com/dwdz4mn27/image/upload/v1674206503/multi-step-form-main/assets/images/icon-thank-you_spbsc5.svg"
@@ -257,5 +266,6 @@
         <button class="main-container__buttons-next">Next step</button>
       </div>
     </main>
+    <script src="./index.js"></script>
   </body>
 </html>

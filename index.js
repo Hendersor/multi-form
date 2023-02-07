@@ -90,9 +90,15 @@ function showPreviousContainer() {
 
 // const chkContainer = document.querySelector(".main-container__plan__options__switch");
 // chkContainer
+const optionsContainer = document
+  .querySelector(".main-container__plan")
+  .querySelectorAll(".main-container__plan__options__container");
 
 const chk = document.getElementById("checkBox");
 chk.addEventListener("click", () => {
-  console.log("Hola");
-  console.log(chk.checked);
+  optionsContainer.forEach((container) => {
+    container.querySelectorAll("p").forEach((p) => {
+      p.classList.toggle("visible");
+    });
+  });
 });

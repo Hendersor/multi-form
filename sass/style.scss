@@ -242,7 +242,7 @@ body {
 
         .main-container__plan__options__container {
           border-radius: 15px;
-          border: 1px solid $marine-blue;
+          border: 1px solid $light-gray;
           height: 80px;
           display: flex;
           justify-content: left;
@@ -278,6 +278,10 @@ body {
               font-size: 1.2rem;
             }
           }
+        }
+        .activePlan {
+          border: 1px solid $marine-blue;
+          background: rgba($color: $purplish-blue, $alpha: 0.1);
         }
       }
     }

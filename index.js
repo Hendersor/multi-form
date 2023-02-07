@@ -9,6 +9,7 @@ const bckButton = document.querySelector(
 bckButton.classList.add("visible");
 bckButton.addEventListener("click", showPreviousContainer);
 
+//Main containers
 const nextStepContainer = document
   .querySelector(".main-container__steps")
   .querySelectorAll(".main-container__steps__steps--container");
@@ -17,6 +18,20 @@ const mainContainer = document
   .querySelector(".main-container")
   .querySelectorAll("section");
 
+const planContainer = document
+  .querySelector(".main-container__plan__options")
+  .querySelectorAll(".main-container__plan__options__container");
+
+planContainer.forEach((container) => {
+  container.addEventListener("click", () => {
+    planContainer.forEach((i) => {
+      i.classList.remove("activePlan");
+    });
+    container.classList.toggle("activePlan");
+  });
+});
+
+//"Next step" button functionality
 function showNextContainer() {
   bckButton.classList.remove("visible");
   let actualStep;
@@ -43,6 +58,7 @@ function showNextContainer() {
   sibling.classList.remove("visible");
 }
 
+//"Go back" button functionality
 function showPreviousContainer() {
   let actualStep;
   let siblingStep;
@@ -64,6 +80,19 @@ function showPreviousContainer() {
       sibling = actualContainer.previousElementSibling;
     }
   });
+  if (actualContainer.classList.contains("main-container__form")) {
+    console.log("Contenedor input");
+  }
+
   actualContainer.classList.add("visible");
   sibling.classList.remove("visible");
 }
+
+// const chkContainer = document.querySelector(".main-container__plan__options__switch");
+// chkContainer
+
+const chk = document.getElementById("checkBox");
+chk.addEventListener("click", () => {
+  console.log("Hola");
+  console.log(chk.checked);
+});

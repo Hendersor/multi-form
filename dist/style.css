@@ -210,7 +210,7 @@ body .main-container .main-container__plan .main-container__plan__options {
 }
 body .main-container .main-container__plan .main-container__plan__options .main-container__plan__options__container {
   border-radius: 15px;
-  border: 1px solid hsl(213deg, 96%, 18%);
+  border: 1px solid hsl(229deg, 24%, 87%);
   height: 80px;
   display: flex;
   justify-content: left;
@@ -241,6 +241,10 @@ body .main-container .main-container__plan .main-container__plan__options .main-
   color: hsl(213deg, 96%, 18%);
   font-weight: 500;
   font-size: 1.2rem;
+}
+body .main-container .main-container__plan .main-container__plan__options .activePlan {
+  border: 1px solid hsl(213deg, 96%, 18%);
+  background: rgba(71, 61, 255, 0.1);
 }
 body .main-container .main-container__pick-container {
   position: relative;

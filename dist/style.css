@@ -360,7 +360,12 @@ body .main-container .main-container__extras-container .main-container__extras-c
   justify-content: space-between;
   width: 150px;
 }
-body .main-container .main-container__extras-container .main-container__extras-container__picks .main-container__extras-container__picks__container .main-container__extras-container__picks__container-price {
+body .main-container .main-container__extras-container .main-container__extras-container__picks .main-container__extras-container__picks__container .main-container__extras-container__picks__container-price__monthly {
+  color: hsl(243deg, 100%, 62%);
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+body .main-container .main-container__extras-container .main-container__extras-container__picks .main-container__extras-container__picks__container .main-container__extras-container__picks__container-price__yearly {
   color: hsl(243deg, 100%, 62%);
   font-weight: 500;
   font-size: 1.3rem;

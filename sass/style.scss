@@ -411,7 +411,12 @@ body {
             justify-content: space-between;
             width: 150px;
           }
-          .main-container__extras-container__picks__container-price {
+          .main-container__extras-container__picks__container-price__monthly {
+            color: $purplish-blue;
+            font-weight: 500;
+            font-size: 1.3rem;
+          }
+          .main-container__extras-container__picks__container-price__yearly {
             color: $purplish-blue;
             font-weight: 500;
             font-size: 1.3rem;

@@ -9,6 +9,9 @@ const bckButton = document.querySelector(
 bckButton.classList.add("visible");
 bckButton.addEventListener("click", showPreviousContainer);
 
+let planPriceSelected;
+let namePlanSelected;
+
 //Main containers
 const nextStepContainer = document
   .querySelector(".main-container__steps")
@@ -22,22 +25,35 @@ const planContainer = document
   .querySelector(".main-container__plan__options")
   .querySelectorAll(".main-container__plan__options__container");
 
-//functionality for the sequence of numbers
 planContainer.forEach((container) => {
   container.addEventListener("click", () => {
     planContainer.forEach((i) => {
       i.classList.remove("activePlan");
     });
     container.classList.toggle("activePlan");
+
+    //changes prices between monthly and yearly. Also gets the price and name from the selected plan
+    namePlanSelected = container.querySelector(
+      ".main-container__plan__options__container__price__planName"
+    ).innerText;
+
+    container.querySelectorAll(".prices").forEach((p) => {
+      if (!p.classList.contains("visible")) {
+        p.querySelectorAll("span").forEach((p) => {
+          planPriceSelected = parseInt(p.innerText);
+        });
+      }
+    });
   });
 });
 
-//"Next step" button functionality
+//functionality for the sequence of numbers
 function showNextContainer() {
   bckButton.classList.remove("visible");
   let actualStep;
   let siblingStep;
 
+  //"Next step" button functionality
   nextStepContainer.forEach((container) => {
     if (container.classList.contains("active")) {
       actualStep = container;
@@ -125,7 +141,7 @@ chk.addEventListener("click", () => {
   });
 
   extrasContainer.forEach((extraContainer) => {
-    const priceMonthly = extraContainer
+    extraContainer
       .querySelectorAll(
         ".main-container__extras-container__picks__container-price__monthly"
       )

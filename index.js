@@ -105,15 +105,15 @@ function showPreviousContainer() {
   sibling.classList.remove("visible");
 }
 
-//checkbox for plan selection
+//Plans and extras container
 const optionsContainer = document
   .querySelector(".main-container__plan")
   .querySelectorAll(".main-container__plan__options__container");
-
 const extrasContainer = document.querySelectorAll(
   ".main-container__extras-container__picks__container"
 );
 
+//checkbox for plan selection
 const chk = document.getElementById("checkBox");
 chk.addEventListener("click", () => {
   optionsContainer.forEach((container) => {
@@ -148,7 +148,6 @@ chk.addEventListener("click", () => {
       .forEach((price) => {
         price.classList.toggle("visible");
       });
-
     extraContainer
       .querySelectorAll(
         ".main-container__extras-container__picks__container-price__yearly"
@@ -156,5 +155,15 @@ chk.addEventListener("click", () => {
       .forEach((price) => {
         price.classList.toggle("visible");
       });
+  });
+});
+
+extrasContainer.forEach((c) => {
+  c.addEventListener("click", () => {
+    if (c.querySelector("input").checked) {
+      c.querySelector("input").checked = false;
+    } else {
+      c.querySelector("input").checked = true;
+    }
   });
 });

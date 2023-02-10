@@ -107,11 +107,6 @@ body .main-container .main-container__form .main-container__form__input-containe
   font-weight: 700;
   padding-left: 12px;
 }
-body .main-container .main-container__form .main-container__form__input-container .main-container__form__input-container__input :-ms-input-placeholder {
-  color: hsl(231deg, 11%, 63%);
-  font-weight: 700;
-  padding-left: 12px;
-}
 body .main-container .main-container__form .main-container__form__input-container .main-container__form__input-container__input ::placeholder {
   color: hsl(231deg, 11%, 63%);
   font-weight: 700;

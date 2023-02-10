@@ -158,12 +158,83 @@ chk.addEventListener("click", () => {
   });
 });
 
+let extraPriceSelected;
+let extraNameSelected;
+
+let onlineService;
+let largeStorage;
+let customProfile;
+
+let onlineServicePrice;
+let largeStoragePrice;
+let customProfilePrice;
+
 extrasContainer.forEach((c) => {
   c.addEventListener("click", () => {
+    //checked and unchecked the checkbox lol
     if (c.querySelector("input").checked) {
       c.querySelector("input").checked = false;
     } else {
       c.querySelector("input").checked = true;
     }
+    //gets the name of the extras
+    extraNameSelected = c.querySelector("div").querySelector("h1").innerText;
+
+    if (extraNameSelected === "Online service") {
+      if (onlineService === undefined) {
+        onlineService = extraNameSelected;
+      } else {
+        onlineService = undefined;
+      }
+      getThePrice(c);
+    } else if (extraNameSelected === "Large storage") {
+      if (largeStorage === undefined) {
+        largeStorage = extraNameSelected;
+      } else {
+        largeStorage = undefined;
+      }
+      getThePrice(c);
+    } else if (extraNameSelected === "Customizable profile") {
+      if (customProfile === undefined) {
+        customProfile = extraNameSelected;
+      } else {
+        customProfile = undefined;
+      }
+      getThePrice(c);
+    }
   });
 });
+
+function getThePrice(c) {
+  c.querySelectorAll("p").forEach((p) => {
+    if (!p.classList.contains("visible")) {
+      p.querySelectorAll("span").forEach((s) => {
+        extraPriceSelected = parseInt(s.innerText);
+        if (extraPriceSelected === 1 || extraPriceSelected === 10) {
+          if (onlineServicePrice === undefined) {
+            onlineServicePrice = extraPriceSelected;
+          } else {
+            onlineServicePrice = undefined;
+          }
+          console.log(onlineService, onlineServicePrice);
+        } else if (extraPriceSelected === 2 || extraPriceSelected === 20) {
+          if (largeStoragePrice === undefined) {
+            largeStoragePrice = extraPriceSelected;
+            console.log(largeStorage, largeStoragePrice);
+          } else {
+            largeStoragePrice = undefined;
+            console.log(largeStorage, largeStoragePrice);
+          }
+        } else if (extraPriceSelected === 3 || extraPriceSelected === 30) {
+          if (customProfilePrice === undefined) {
+            customProfilePrice = extraPriceSelected;
+            console.log(customProfile, customProfilePrice);
+          } else {
+            customProfilePrice = undefined;
+            console.log(customProfile, customProfilePrice);
+          }
+        }
+      });
+    }
+  });
+}

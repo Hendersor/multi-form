@@ -44,6 +44,7 @@ planContainer.forEach((container) => {
         });
       }
     });
+    deployPlan();
   });
 });
 
@@ -205,6 +206,7 @@ extrasContainer.forEach((c) => {
   });
 });
 
+//Gets the price of the extra selected
 function getThePrice(c) {
   c.querySelectorAll("p").forEach((p) => {
     if (!p.classList.contains("visible")) {
@@ -216,25 +218,29 @@ function getThePrice(c) {
           } else {
             onlineServicePrice = undefined;
           }
-          console.log(onlineService, onlineServicePrice);
         } else if (extraPriceSelected === 2 || extraPriceSelected === 20) {
           if (largeStoragePrice === undefined) {
             largeStoragePrice = extraPriceSelected;
-            console.log(largeStorage, largeStoragePrice);
           } else {
             largeStoragePrice = undefined;
-            console.log(largeStorage, largeStoragePrice);
           }
         } else if (extraPriceSelected === 3 || extraPriceSelected === 30) {
           if (customProfilePrice === undefined) {
             customProfilePrice = extraPriceSelected;
-            console.log(customProfile, customProfilePrice);
           } else {
             customProfilePrice = undefined;
-            console.log(customProfile, customProfilePrice);
           }
         }
       });
     }
   });
+  console.log("Precios obtenidos");
+  // deployExtras();
+}
+
+function deployPlan() {
+  const showPlanSelected = document.querySelector(
+    ".main-container__summary-container__pay-summary__plan-container"
+  );
+  console.log(showPlanSelected);
 }

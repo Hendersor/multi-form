@@ -242,5 +242,12 @@ function deployPlan() {
   const showPlanSelected = document.querySelector(
     ".main-container__summary-container__pay-summary__plan-container"
   );
+  showPlanSelected.querySelector("h3").innerText = namePlanSelected;
+  showPlanSelected.querySelector(".price").innerText = planPriceSelected;
+  if (planPriceSelected >= 90) {
+    showPlanSelected.querySelector(".sub").innerText = "/yr";
+  } else {
+    showPlanSelected.querySelector(".sub").innerText = "/mo";
+  }
   console.log(showPlanSelected);
 }

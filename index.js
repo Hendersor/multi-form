@@ -114,6 +114,10 @@ const extrasContainer = document.querySelectorAll(
   ".main-container__extras-container__picks__container"
 );
 
+const pricesContainer = document.querySelectorAll(
+  ".main-container__summary-container__extras-summary__extra-container"
+);
+
 //checkbox for plan selection
 const chk = document.getElementById("checkBox");
 chk.addEventListener("click", () => {
@@ -157,7 +161,25 @@ chk.addEventListener("click", () => {
         price.classList.toggle("visible");
       });
   });
+  if (chk.checked) {
+    filterSummary(pricesContainer);
+    console.log("Año");
+    // yrPrices.classList.toggle("visible");
+  } else {
+    console.log("Mensual");
+    filterSummary(pricesContainer);
+    // monthPrices.classList.toggle("visible");
+  }
 });
+
+function filterSummary(pricesContainer) {
+  pricesContainer.forEach((c) => {
+    const p = c.querySelectorAll("p");
+    p.forEach((p) => {
+      p.classList.toggle("visible");
+    });
+  });
+}
 
 let extraPriceSelected;
 let extraNameSelected;
@@ -180,7 +202,7 @@ extrasContainer.forEach((c) => {
     }
     //gets the name of the extras
     extraNameSelected = c.querySelector("div").querySelector("h1").innerText;
-
+    console.log(extraNameSelected);
     if (extraNameSelected === "Online service") {
       if (onlineService === undefined) {
         onlineService = extraNameSelected;
@@ -207,36 +229,41 @@ extrasContainer.forEach((c) => {
 });
 
 //Gets the price of the extra selected
-function getThePrice(c) {
-  c.querySelectorAll("p").forEach((p) => {
-    if (!p.classList.contains("visible")) {
-      p.querySelectorAll("span").forEach((s) => {
-        extraPriceSelected = parseInt(s.innerText);
-        if (extraPriceSelected === 1 || extraPriceSelected === 10) {
-          if (onlineServicePrice === undefined) {
-            onlineServicePrice = extraPriceSelected;
-          } else {
-            onlineServicePrice = undefined;
-          }
-        } else if (extraPriceSelected === 2 || extraPriceSelected === 20) {
-          if (largeStoragePrice === undefined) {
-            largeStoragePrice = extraPriceSelected;
-          } else {
-            largeStoragePrice = undefined;
-          }
-        } else if (extraPriceSelected === 3 || extraPriceSelected === 30) {
-          if (customProfilePrice === undefined) {
-            customProfilePrice = extraPriceSelected;
-          } else {
-            customProfilePrice = undefined;
-          }
-        }
-      });
-    }
-  });
-  console.log("Precios obtenidos");
-  // deployExtras();
-}
+
+// function getThePrice(c) {
+//   c.querySelectorAll("p").forEach((p) => {
+//     if (!p.classList.contains("visible")) {
+//       p.querySelectorAll("span").forEach((s) => {
+//         extraPriceSelected = parseInt(s.innerText);
+//         if (extraPriceSelected === 1 || extraPriceSelected === 10) {
+//           if (onlineServicePrice === undefined) {
+//             onlineServicePrice = extraPriceSelected;
+//             deployExtras(onlineService, onlineServicePrice);
+//           } else {
+//             onlineServicePrice = undefined;
+//             deployExtras(onlineService, onlineServicePrice);
+//           }
+//         } else if (extraPriceSelected === 2 || extraPriceSelected === 20) {
+//           if (largeStoragePrice === undefined) {
+//             largeStoragePrice = extraPriceSelected;
+//             deployExtras(largeStorage, largeStoragePrice);
+//           } else {
+//             largeStoragePrice = undefined;
+//             // deployExtras();
+//           }
+//         } else if (extraPriceSelected === 3 || extraPriceSelected === 30) {
+//           if (customProfilePrice === undefined) {
+//             customProfilePrice = extraPriceSelected;
+//             // deployExtras();
+//           } else {
+//             customProfilePrice = undefined;
+//             // deployExtras();
+//           }
+//         }
+//       });
+//     }
+//   });
+// }
 
 function deployPlan() {
   const showPlanSelected = document.querySelector(
@@ -249,5 +276,17 @@ function deployPlan() {
   } else {
     showPlanSelected.querySelector(".sub").innerText = "/mo";
   }
-  console.log(showPlanSelected);
+}
+
+function deployExtras(name, price) {
+  const extrasSummaryContainer = document.querySelector(
+    ".main-container__summary-container__extras-summary__extra-container"
+  );
+  const showName = document.createElement("h3");
+  showName.innerText = name;
+
+  extrasSummaryContainer.querySelector(".price").innerText = price;
+  extrasSummaryContainer.querySelector("h3").innerText = name;
+
+  console.log(name, price);
 }

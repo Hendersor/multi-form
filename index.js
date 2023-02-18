@@ -163,21 +163,51 @@ chk.addEventListener("click", () => {
   });
   if (chk.checked) {
     filterSummary(pricesContainer);
-    console.log("Año");
   } else {
-    console.log("Mensual");
     filterSummary(pricesContainer);
   }
 });
 
 //The filter in the ticket between monthly and yearly
 function filterSummary(pricesContainer) {
+  let sub = "/mo";
+  const firstContainer = document.getElementById("1price");
+  const secondContainer = document.getElementById("2price");
+  const thirdContainer = document.getElementById("3price");
+  //Change the type of plan
   pricesContainer.forEach((c) => {
-    const p = c.querySelectorAll("p");
+    const p = c.querySelectorAll(".finalPrice");
     p.forEach((p) => {
-      p.classList.toggle("visible");
+      const span = p.querySelectorAll("span");
+      span.forEach((s) => {
+        if (s.innerText.includes("/mo")) {
+          s.innerText = "/yr";
+          sub = s.innerText;
+          firstContainer.innerText = "10";
+          secondContainer.innerText = "20";
+          thirdContainer.innerText = "30";
+        } else if (s.innerText.includes("/yr")) {
+          s.innerText = "/mo";
+          sub = s.innerText;
+          firstContainer.innerText = "1";
+          secondContainer.innerText = "2";
+          thirdContainer.innerText = "3";
+        }
+      });
     });
   });
+
+  // Change the price of the plan
+  // pricesContainer.forEach((p) => {
+  //   const span = p.querySelector("p");
+  //   span.getElementById();
+
+  //   if (sub === "/yr") {
+  //     firstContainer.innerText = "1";
+  //     secondContainer.innerText = "2";
+  //     thirdContainer.innerText = "3";
+  //   }
+  // });
 }
 
 let extraPriceSelected;
@@ -194,9 +224,6 @@ let customProfilePrice;
 const extrasNameContainer = document.querySelectorAll(
   ".main-container__extras-container__picks__container"
 );
-
-//Solucion
-//
 
 extrasNameContainer.forEach((n) => {
   n.addEventListener("click", () => {

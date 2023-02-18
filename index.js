@@ -121,6 +121,7 @@ const pricesContainer = document.querySelectorAll(
 //checkbox for plan selection
 const chk = document.getElementById("checkBox");
 chk.addEventListener("click", () => {
+  console.log("Checkbox");
   optionsContainer.forEach((container) => {
     const yearlyPrice = container
       .querySelector(".main-container__plan__options__container__price")
@@ -163,10 +164,43 @@ chk.addEventListener("click", () => {
   });
   if (chk.checked) {
     filterSummary(pricesContainer);
+    filterPlan();
   } else {
     filterSummary(pricesContainer);
+    filterPlan();
   }
 });
+
+//The filter in the ticket that change the plan between monthly and yearly
+function filterPlan() {
+  const summaryPlanContainer = document.querySelector(
+    ".main-container__summary-container__pay-summary__plan-container"
+  );
+
+  const summaryPrice = document.querySelector(".price");
+  const summaryPlan = summaryPlanContainer.querySelector(".sub");
+  const summaryPlanPrice = summaryPrice.innerText;
+  //Change in the summary monthly and yearly, also the price
+  if (summaryPlan.innerText === "/mo") {
+    summaryPlan.innerText = "/yr";
+    if (summaryPlanPrice === "9") {
+      summaryPrice.innerText = "90";
+    } else if (summaryPlanPrice === "12") {
+      summaryPrice.innerText = "120";
+    } else if (summaryPlanPrice === "15") {
+      summaryPrice.innerText = "150";
+    }
+  } else if (summaryPlan.innerText === "/yr") {
+    summaryPlan.innerText = "/mo";
+    if (summaryPlanPrice === "90") {
+      summaryPrice.innerText = "9";
+    } else if (summaryPlanPrice === "120") {
+      summaryPrice.innerText = "12";
+    } else if (summaryPlanPrice === "150") {
+      summaryPrice.innerText = "15";
+    }
+  }
+}
 
 //The filter in the ticket between monthly and yearly
 function filterSummary(pricesContainer) {
@@ -223,11 +257,10 @@ extrasNameContainer.forEach((n) => {
     } else {
       checkbox.checked = true;
     }
-
     // let nameExtraSelected = n
     //   .querySelector("div")
     //   .querySelector("h1").innerText;
-    //Summary extras container
+    // Summary extras container
     // const summaryExtrasContainer = document.querySelector(
     //   ".main-container__summary-container__extras-summary"
     // );
@@ -249,10 +282,7 @@ function deployExtrasinSummary(n) {
   );
   allExtras.forEach((find) => {
     const extraName = find.querySelector("h3").innerText;
-    const extraContainer = find.id;
-
     if (extraName === name) {
-      console.log(find);
       find.classList.toggle("visible");
     }
   });

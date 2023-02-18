@@ -174,7 +174,7 @@ function filterSummary(pricesContainer) {
   const firstContainer = document.getElementById("1price");
   const secondContainer = document.getElementById("2price");
   const thirdContainer = document.getElementById("3price");
-  //Change the type of plan
+  //Change the type of plan and the prices
   pricesContainer.forEach((c) => {
     const p = c.querySelectorAll(".finalPrice");
     p.forEach((p) => {
@@ -196,30 +196,18 @@ function filterSummary(pricesContainer) {
       });
     });
   });
-
-  // Change the price of the plan
-  // pricesContainer.forEach((p) => {
-  //   const span = p.querySelector("p");
-  //   span.getElementById();
-
-  //   if (sub === "/yr") {
-  //     firstContainer.innerText = "1";
-  //     secondContainer.innerText = "2";
-  //     thirdContainer.innerText = "3";
-  //   }
-  // });
 }
 
-let extraPriceSelected;
-let extraNameSelected;
+// let extraPriceSelected;
+// let extraNameSelected;
 
-let onlineService;
-let largeStorage;
-let customProfile;
+// let onlineService;
+// let largeStorage;
+// let customProfile;
 
-let onlineServicePrice;
-let largeStoragePrice;
-let customProfilePrice;
+// let onlineServicePrice;
+// let largeStoragePrice;
+// let customProfilePrice;
 
 const extrasNameContainer = document.querySelectorAll(
   ".main-container__extras-container__picks__container"
@@ -227,6 +215,7 @@ const extrasNameContainer = document.querySelectorAll(
 
 extrasNameContainer.forEach((n) => {
   n.addEventListener("click", () => {
+    deployExtrasinSummary(n);
     //check and un check the extras
     const checkbox = n.querySelector("input");
     if (checkbox.checked) {
@@ -235,22 +224,39 @@ extrasNameContainer.forEach((n) => {
       checkbox.checked = true;
     }
 
-    let nameExtraSelected = n
-      .querySelector("div")
-      .querySelector("h1").innerText;
+    // let nameExtraSelected = n
+    //   .querySelector("div")
+    //   .querySelector("h1").innerText;
     //Summary extras container
-    const summaryExtrasContainer = document.querySelector(
-      ".main-container__summary-container__extras-summary"
-    );
+    // const summaryExtrasContainer = document.querySelector(
+    //   ".main-container__summary-container__extras-summary"
+    // );
 
-    const allDivs = summaryExtrasContainer.querySelectorAll("div");
-    allDivs.forEach((div) => {
-      if (nameExtraSelected === div.querySelector("h3").innerText) {
-        div.querySelector("h3").classList.toggle("visible");
-      }
-    });
+    // const allDivs = summaryExtrasContainer.querySelectorAll("div");
+    // allDivs.forEach((div) => {
+    //   if (nameExtraSelected === div.querySelector("h3").innerText) {
+    //     div.querySelector("h3").classList.toggle("visible");
+    //   }
+    // });
   });
 });
+
+function deployExtrasinSummary(n) {
+  const name = n.querySelector("h1").innerText;
+
+  const allExtras = document.querySelectorAll(
+    ".main-container__summary-container__extras-summary__extra-container"
+  );
+  allExtras.forEach((find) => {
+    const extraName = find.querySelector("h3").innerText;
+    const extraContainer = find.id;
+
+    if (extraName === name) {
+      console.log(find);
+      find.classList.toggle("visible");
+    }
+  });
+}
 
 // extrasContainer.forEach((c) => {
 //   c.addEventListener("click", () => {

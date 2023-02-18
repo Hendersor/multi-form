@@ -344,6 +344,9 @@ body {
         color: $cool-gray;
       }
     }
+    .visible {
+      display: none;
+    }
 
     .main-container__extras-container {
       position: relative;
@@ -503,18 +506,22 @@ body {
               font-size: 1.4rem;
             }
           }
+          .visible {
+            display: none;
+          }
         }
 
-        .main-container__summary-container__extras-summary__extra-container:nth-child(
-            3
-          ) {
-          margin-bottom: 60px;
-        }
+        // .main-container__summary-container__extras-summary__extra-container:nth-child(
+        //     3
+        //   ) {
+        //   margin-bottom: 60px;
+        // }
 
         .main-container__summary-container__extras-summary__total-container {
           display: flex;
           justify-content: space-between;
           padding: 0 15px 0 15px;
+          margin-top: 60px;
           h3 {
             font-size: 1.4rem;
             color: $cool-gray;

@@ -2,15 +2,18 @@ const nxtButton = document.querySelector(
   ".main-container .main-container__buttons .main-container__buttons-next"
 );
 nxtButton.addEventListener("click", showNextContainer);
-
+// nxtButton.addEventListener("click", whichContainerAreWe);
 const bckButton = document.querySelector(
   ".main-container__buttons .main-container__buttons-back"
 );
+// bckButton.addEventListener("click", whichContainerAreWe);
 bckButton.classList.add("visible");
 bckButton.addEventListener("click", showPreviousContainer);
 
 let planPriceSelected;
 let namePlanSelected;
+
+const total = [];
 
 //Main containers
 const nextStepContainer = document
@@ -45,6 +48,11 @@ planContainer.forEach((container) => {
       }
     });
     deployPlan();
+    //Reactivate button
+
+    nxtButton.style.background = "hsl(213, 96%, 18%)";
+    nxtButton.color = "white";
+    nxtButton.disabled = false;
   });
 });
 
@@ -74,6 +82,8 @@ function showNextContainer() {
   });
   actualContainer.classList.add("visible");
   sibling.classList.remove("visible");
+  //Functionality in the containers using the next button
+  whichContainerAreWeNext(sibling);
 }
 
 //"Go back" button functionality
@@ -104,6 +114,58 @@ function showPreviousContainer() {
 
   actualContainer.classList.add("visible");
   sibling.classList.remove("visible");
+
+  ////////////////////////////////////////
+  whichContainerAreWeBack(sibling);
+}
+
+function whichContainerAreWeBack(sibling) {
+  const container = sibling;
+  if (!container.classList.contains("visible")) {
+    if (container.classList.contains("main-container__form")) {
+      console.log("Entro");
+      mainContainerFunctionality();
+      checkPersonalInfo();
+    }
+    // else {
+    //   nxtButton.disabled = false;
+    //   nxtButton.style.background = "hsl(213, 96%, 18%)";
+    //   nxtButton.style.color = "white";
+    // }
+  }
+}
+
+function whichContainerAreWeNext(sibling) {
+  const container = sibling;
+  if (!container.classList.contains("visible")) {
+    if (container.classList.contains("main-container__plan")) {
+      selectPlanFunctionality(container);
+    }
+  }
+}
+
+function mainContainerFunctionality() {
+  bckButton.classList.add("visible");
+  nxtButton.disabled = false;
+  nxtButton.style.background = "hsl(213, 96%, 18%)";
+  nxtButton.style.color = "white";
+}
+
+function selectPlanFunctionality(container) {
+  const plansContainer = container.querySelectorAll(
+    ".main-container__plan__options__container"
+  );
+  plansContainer.forEach((active) => {
+    if (!active.classList.contains("activePlan")) {
+      nxtButton.style.backgroundColor = "gray";
+      nxtButton.style.color = "white";
+      nxtButton.disabled = true;
+    } else if (active.classList.contains("activePlan")) {
+      nxtButton.disabled = false;
+      nxtButton.style.background = "hsl(213, 96%, 18%)";
+      nxtButton.style.color = "white";
+    }
+  });
 }
 
 //Plans and extras container
@@ -232,17 +294,6 @@ function filterSummary(pricesContainer) {
   });
 }
 
-// let extraPriceSelected;
-// let extraNameSelected;
-
-// let onlineService;
-// let largeStorage;
-// let customProfile;
-
-// let onlineServicePrice;
-// let largeStoragePrice;
-// let customProfilePrice;
-
 const extrasNameContainer = document.querySelectorAll(
   ".main-container__extras-container__picks__container"
 );
@@ -257,20 +308,6 @@ extrasNameContainer.forEach((n) => {
     } else {
       checkbox.checked = true;
     }
-    // let nameExtraSelected = n
-    //   .querySelector("div")
-    //   .querySelector("h1").innerText;
-    // Summary extras container
-    // const summaryExtrasContainer = document.querySelector(
-    //   ".main-container__summary-container__extras-summary"
-    // );
-
-    // const allDivs = summaryExtrasContainer.querySelectorAll("div");
-    // allDivs.forEach((div) => {
-    //   if (nameExtraSelected === div.querySelector("h3").innerText) {
-    //     div.querySelector("h3").classList.toggle("visible");
-    //   }
-    // });
   });
 });
 
@@ -288,79 +325,6 @@ function deployExtrasinSummary(n) {
   });
 }
 
-// extrasContainer.forEach((c) => {
-//   c.addEventListener("click", () => {
-//     //checked and unchecked the checkbox lol
-//     if (c.querySelector("input").checked) {
-//       c.querySelector("input").checked = false;
-//     } else {
-//       c.querySelector("input").checked = true;
-//     }
-//     //gets the name of the extras
-//     extraNameSelected = c.querySelector("div").querySelector("h1").innerText;
-//     console.log(extraNameSelected);
-//     if (extraNameSelected === "Online service") {
-//       if (onlineService === undefined) {
-//         onlineService = extraNameSelected;
-//       } else {
-//         onlineService = undefined;
-//       }
-//       getThePrice(c);
-//     } else if (extraNameSelected === "Large storage") {
-//       if (largeStorage === undefined) {
-//         largeStorage = extraNameSelected;
-//       } else {
-//         largeStorage = undefined;
-//       }
-//       getThePrice(c);
-//     } else if (extraNameSelected === "Customizable profile") {
-//       if (customProfile === undefined) {
-//         customProfile = extraNameSelected;
-//       } else {
-//         customProfile = undefined;
-//       }
-//       getThePrice(c);
-//     }
-//   });
-// });
-
-//Gets the price of the extra selected
-
-// function getThePrice(c) {
-//   c.querySelectorAll("p").forEach((p) => {
-//     if (!p.classList.contains("visible")) {
-//       p.querySelectorAll("span").forEach((s) => {
-//         extraPriceSelected = parseInt(s.innerText);
-//         if (extraPriceSelected === 1 || extraPriceSelected === 10) {
-//           if (onlineServicePrice === undefined) {
-//             onlineServicePrice = extraPriceSelected;
-//             deployExtras(onlineService, onlineServicePrice);
-//           } else {
-//             onlineServicePrice = undefined;
-//             deployExtras(onlineService, onlineServicePrice);
-//           }
-//         } else if (extraPriceSelected === 2 || extraPriceSelected === 20) {
-//           if (largeStoragePrice === undefined) {
-//             largeStoragePrice = extraPriceSelected;
-//             deployExtras(largeStorage, largeStoragePrice);
-//           } else {
-//             largeStoragePrice = undefined;
-//             // deployExtras();
-//           }
-//         } else if (extraPriceSelected === 3 || extraPriceSelected === 30) {
-//           if (customProfilePrice === undefined) {
-//             customProfilePrice = extraPriceSelected;
-//             // deployExtras();
-//           } else {
-//             customProfilePrice = undefined;
-//             // deployExtras();
-//           }
-//         }
-//       });
-//     }
-//   });
-// }
-
 function deployPlan() {
   const showPlanSelected = document.querySelector(
     ".main-container__summary-container__pay-summary__plan-container"
@@ -374,15 +338,34 @@ function deployPlan() {
   }
 }
 
-// function deployExtras(name, price) {
-//   const extrasSummaryContainer = document.querySelector(
-//     ".main-container__summary-container__extras-summary__extra-container"
-//   );
-//   const showName = document.createElement("h3");
-//   showName.innerText = name;
+function checkPersonalInfo() {
+  const inputsContainers = document.querySelectorAll(
+    ".main-container__form__input-container__input input"
+  );
 
-//   extrasSummaryContainer.querySelector(".price").innerText = price;
-//   extrasSummaryContainer.querySelector("h3").innerText = name;
-
-//   console.log(name, price);
-// }
+  let name;
+  let email;
+  let phone;
+  if (name === undefined && email === undefined && phone === undefined) {
+    nxtButton.style.backgroundColor = "gray";
+    nxtButton.style.color = "white";
+    nxtButton.disabled = true;
+  }
+  inputsContainers.forEach((input) => {
+    input.addEventListener("input", () => {
+      if (input.type === "text") {
+        name = input.value;
+      } else if (input.type === "email") {
+        email = input.value;
+      } else if (input.type === "number") {
+        phone = input.value;
+      }
+      if (name !== undefined && email !== undefined && phone !== undefined) {
+        nxtButton.disabled = false;
+        nxtButton.style.background = "hsl(213, 96%, 18%)";
+        nxtButton.style.color = "white";
+      }
+    });
+  });
+}
+checkPersonalInfo();

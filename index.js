@@ -123,7 +123,6 @@ function whichContainerAreWeBack(sibling) {
   const container = sibling;
   if (!container.classList.contains("visible")) {
     if (container.classList.contains("main-container__form")) {
-      console.log("Entro");
       mainContainerFunctionality();
       checkPersonalInfo();
     }
@@ -140,6 +139,10 @@ function whichContainerAreWeNext(sibling) {
   if (!container.classList.contains("visible")) {
     if (container.classList.contains("main-container__plan")) {
       selectPlanFunctionality(container);
+    } else if (
+      container.classList.contains("main-container__summary-container")
+    ) {
+      getTheTotal();
     }
   }
 }
@@ -168,6 +171,15 @@ function selectPlanFunctionality(container) {
   });
 }
 
+function getTheTotal() {
+  const planPrice = parseInt(document.querySelector(".price").innerText);
+  const extraTotal = total.reduce((sum, item) => sum + item, 0);
+  const finalPay = planPrice + extraTotal;
+
+  const domTotal = document.querySelector(".total");
+  domTotal.innerText = finalPay;
+}
+
 //Plans and extras container
 const optionsContainer = document
   .querySelector(".main-container__plan")
@@ -179,6 +191,20 @@ const extrasContainer = document.querySelectorAll(
 const pricesContainer = document.querySelectorAll(
   ".main-container__summary-container__extras-summary__extra-container"
 );
+
+//Get the prices for the extras and push it to the array
+extrasContainer.forEach((e) => {
+  e.addEventListener("click", () => {
+    console.log(e);
+    let price = parseInt(e.querySelector("span").innerText);
+    if (!total.includes(price)) {
+      total.push(price);
+    } else {
+      const index = total.indexOf(price);
+      total.splice(index, 1);
+    }
+  });
+});
 
 //checkbox for plan selection
 const chk = document.getElementById("checkBox");
@@ -337,7 +363,7 @@ function deployPlan() {
     showPlanSelected.querySelector(".sub").innerText = "/mo";
   }
 }
-
+//Enables and disables the button "Next" in the form container
 function checkPersonalInfo() {
   const inputsContainers = document.querySelectorAll(
     ".main-container__form__input-container__input input"

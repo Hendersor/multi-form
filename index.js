@@ -195,7 +195,6 @@ const pricesContainer = document.querySelectorAll(
 //Get the prices for the extras and push it to the array
 extrasContainer.forEach((e) => {
   e.addEventListener("click", () => {
-    console.log(e);
     let price = parseInt(e.querySelector("span").innerText);
     if (!total.includes(price)) {
       total.push(price);
@@ -265,12 +264,26 @@ function filterPlan() {
     ".main-container__summary-container__pay-summary__plan-container"
   );
 
+  const summaryTotalContainer = document
+    .querySelector(
+      ".main-container__summary-container__extras-summary__total-container"
+    )
+    .querySelector("p")
+    .querySelector(".sub");
+  const textPerMonthPerYear = document
+    .querySelector(
+      ".main-container__summary-container__extras-summary__total-container"
+    )
+    .querySelector(".sub");
+
   const summaryPrice = document.querySelector(".price");
   const summaryPlan = summaryPlanContainer.querySelector(".sub");
   const summaryPlanPrice = summaryPrice.innerText;
   //Change in the summary monthly and yearly, also the price
   if (summaryPlan.innerText === "/mo") {
     summaryPlan.innerText = "/yr";
+    summaryTotalContainer.innerText = "/yr";
+    textPerMonthPerYear.innerText = "(per year)";
     if (summaryPlanPrice === "9") {
       summaryPrice.innerText = "90";
     } else if (summaryPlanPrice === "12") {
@@ -280,6 +293,8 @@ function filterPlan() {
     }
   } else if (summaryPlan.innerText === "/yr") {
     summaryPlan.innerText = "/mo";
+    summaryTotalContainer.innerText = "/mo";
+    textPerMonthPerYear.innerText = "(per month)";
     if (summaryPlanPrice === "90") {
       summaryPrice.innerText = "9";
     } else if (summaryPlanPrice === "120") {

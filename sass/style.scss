@@ -27,7 +27,7 @@ body {
 
   .main-container {
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -38,11 +38,12 @@ body {
       justify-content: space-around;
       align-items: center;
       position: relative;
-      height: 28%;
+      height: 20%;
       background-image: url("https://res.cloudinary.com/dwdz4mn27/image/upload/v1674206503/multi-step-form-main/assets/images/bg-sidebar-mobile_tkycab.svg");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      min-width: 100vw;
 
       .main-container__steps__steps--container {
         .main-container__steps__steps--container__number {
@@ -87,15 +88,16 @@ body {
       width: 350px;
       background-color: $white;
       position: absolute;
-      top: 18%;
-      right: 50%;
-      left: 4%;
+      top: 12%;
       border-radius: 15px;
       padding: 25px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-
+      max-width: 350px;
+      min-width: 350px;
+      margin: 0 auto;
+      align-self: center;
       .main-container__form__info {
         height: 90px;
         display: flex;
@@ -145,13 +147,15 @@ body {
 
     .main-container__plan {
       position: relative;
-      height: 470px;
+      height: 460px;
       width: 350px;
-      top: -8%;
+      top: -5%;
       margin: 0 auto;
       border-radius: 15px;
       padding: 25px;
       background-color: $white;
+      max-width: 350px;
+      min-width: 350px;
 
       .main-container__plan__options__swich {
         display: flex;
@@ -235,7 +239,7 @@ body {
       }
 
       .main-container__plan__options {
-        height: 370px;
+        height: 350px;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -353,10 +357,12 @@ body {
       height: 350px;
       width: 330px;
       background-color: $white;
-      top: -13%;
+      top: -15%;
       margin: 0 auto;
       border-radius: 15px;
       padding: 15px;
+      max-width: 350px;
+      min-width: 350px;
 
       .main-container__extras-container__text {
         height: 110px;
@@ -440,9 +446,11 @@ body {
       height: 400px;
       width: 330px;
       background-color: $white;
-      top: -13%;
+      top: -10%;
       margin: 0 auto;
       border-radius: 15px;
+      max-width: 350px;
+      min-width: 350px;
 
       .main-container__summary-container__info-container {
         height: 140px;
@@ -538,7 +546,7 @@ body {
     height: 350px;
     width: 330px;
     background-color: $white;
-    top: -13%;
+    top: -30%;
     margin: 0 auto;
     border-radius: 15px;
     padding: 15px;

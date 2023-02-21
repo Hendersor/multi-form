@@ -114,7 +114,10 @@ function showPreviousContainer() {
   actualContainer.classList.add("visible");
   sibling.classList.remove("visible");
 
-  ////////////////////////////////////////
+  const fnsButton = document.querySelector(".main-container__buttons-finish");
+  fnsButton.classList.add("visible");
+  nxtButton.classList.remove("visible");
+
   whichContainerAreWeBack(sibling);
 }
 

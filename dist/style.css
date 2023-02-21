@@ -14,7 +14,7 @@ body {
 }
 body .main-container {
   width: 100%;
-  height: 110vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -25,11 +25,12 @@ body .main-container .main-container__steps {
   justify-content: space-around;
   align-items: center;
   position: relative;
-  height: 28%;
+  height: 20%;
   background-image: url("https://res.cloudinary.com/dwdz4mn27/image/upload/v1674206503/multi-step-form-main/assets/images/bg-sidebar-mobile_tkycab.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-width: 100vw;
 }
 body .main-container .main-container__steps .main-container__steps__steps--container .main-container__steps__steps--container__number {
   display: flex;
@@ -67,14 +68,16 @@ body .main-container .main-container__form {
   width: 350px;
   background-color: hsl(0deg, 0%, 100%);
   position: absolute;
-  top: 18%;
-  right: 50%;
-  left: 4%;
+  top: 12%;
   border-radius: 15px;
   padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 350px;
+  min-width: 350px;
+  margin: 0 auto;
+  align-self: center;
 }
 body .main-container .main-container__form .main-container__form__info {
   height: 90px;
@@ -122,13 +125,15 @@ body .main-container .main-container__form .main-container__form__input-containe
 }
 body .main-container .main-container__plan {
   position: relative;
-  height: 470px;
+  height: 460px;
   width: 350px;
-  top: -8%;
+  top: -5%;
   margin: 0 auto;
   border-radius: 15px;
   padding: 25px;
   background-color: hsl(0deg, 0%, 100%);
+  max-width: 350px;
+  min-width: 350px;
 }
 body .main-container .main-container__plan .main-container__plan__options__swich {
   display: flex;
@@ -198,7 +203,7 @@ body .main-container .main-container__plan .main-container__plan__text p {
   font-weight: 500;
 }
 body .main-container .main-container__plan .main-container__plan__options {
-  height: 370px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -301,10 +306,12 @@ body .main-container .main-container__extras-container {
   height: 350px;
   width: 330px;
   background-color: hsl(0deg, 0%, 100%);
-  top: -13%;
+  top: -15%;
   margin: 0 auto;
   border-radius: 15px;
   padding: 15px;
+  max-width: 350px;
+  min-width: 350px;
 }
 body .main-container .main-container__extras-container .main-container__extras-container__text {
   height: 110px;
@@ -380,9 +387,11 @@ body .main-container .main-container__summary-container {
   height: 400px;
   width: 330px;
   background-color: hsl(0deg, 0%, 100%);
-  top: -13%;
+  top: -10%;
   margin: 0 auto;
   border-radius: 15px;
+  max-width: 350px;
+  min-width: 350px;
 }
 body .main-container .main-container__summary-container .main-container__summary-container__info-container {
   height: 140px;
@@ -467,7 +476,7 @@ body .main-container__finish-container {
   height: 350px;
   width: 330px;
   background-color: hsl(0deg, 0%, 100%);
-  top: -13%;
+  top: -30%;
   margin: 0 auto;
   border-radius: 15px;
   padding: 15px;

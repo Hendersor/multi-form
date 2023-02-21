@@ -2,11 +2,9 @@ const nxtButton = document.querySelector(
   ".main-container .main-container__buttons .main-container__buttons-next"
 );
 nxtButton.addEventListener("click", showNextContainer);
-// nxtButton.addEventListener("click", whichContainerAreWe);
 const bckButton = document.querySelector(
   ".main-container__buttons .main-container__buttons-back"
 );
-// bckButton.addEventListener("click", whichContainerAreWe);
 bckButton.classList.add("visible");
 bckButton.addEventListener("click", showPreviousContainer);
 
@@ -72,6 +70,7 @@ function showNextContainer() {
   actualStep.classList.remove("active");
   siblingStep.classList.add("active");
 
+  //"Next step" button showing the next container
   let actualContainer;
   let sibling;
   mainContainer.forEach((container) => {
@@ -131,6 +130,8 @@ function whichContainerAreWeBack(sibling) {
 
 function whichContainerAreWeNext(sibling) {
   const container = sibling;
+  deployThankYouContainer(container);
+
   if (!container.classList.contains("visible")) {
     if (container.classList.contains("main-container__plan")) {
       selectPlanFunctionality(container);
@@ -139,6 +140,25 @@ function whichContainerAreWeNext(sibling) {
     ) {
       getTheTotal();
     }
+  }
+}
+
+function deployThankYouContainer(container) {
+  if (container.id === "summaryContainer") {
+    nxtButton.classList.toggle("visible");
+    const fnsButton = document.querySelector(".main-container__buttons-finish");
+    fnsButton.classList.toggle("visible");
+    fnsButton.style.background = "hsl(213, 96%, 18%)";
+    fnsButton.style.color = "white";
+
+    fnsButton.addEventListener("click", () => {
+      const thankYouContainer = document.getElementById("thankYouContainer");
+      container.classList.toggle("visible");
+      thankYouContainer.classList.toggle("visible");
+
+      const btnContainer = document.querySelector(".main-container__buttons");
+      btnContainer.classList.toggle("visible");
+    });
   }
 }
 

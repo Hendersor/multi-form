@@ -13,7 +13,7 @@ bckButton.addEventListener("click", showPreviousContainer);
 let planPriceSelected;
 let namePlanSelected;
 
-const total = [];
+let total = [];
 
 //Main containers
 const nextStepContainer = document
@@ -126,11 +126,6 @@ function whichContainerAreWeBack(sibling) {
       mainContainerFunctionality();
       checkPersonalInfo();
     }
-    // else {
-    //   nxtButton.disabled = false;
-    //   nxtButton.style.background = "hsl(213, 96%, 18%)";
-    //   nxtButton.style.color = "white";
-    // }
   }
 }
 
@@ -172,6 +167,7 @@ function selectPlanFunctionality(container) {
 }
 
 function getTheTotal() {
+  console.log(total);
   const planPrice = parseInt(document.querySelector(".price").innerText);
   const extraTotal = total.reduce((sum, item) => sum + item, 0);
   const finalPay = planPrice + extraTotal;
@@ -195,20 +191,25 @@ const pricesContainer = document.querySelectorAll(
 //Get the prices for the extras and push it to the array
 extrasContainer.forEach((e) => {
   e.addEventListener("click", () => {
-    let price = parseInt(e.querySelector("span").innerText);
-    if (!total.includes(price)) {
-      total.push(price);
-    } else {
-      const index = total.indexOf(price);
-      total.splice(index, 1);
-    }
+    test = e.querySelectorAll("p");
+
+    test.forEach((t) => {
+      if (!t.classList.contains("visible") && t.classList.value !== "") {
+        let visiblePrice = parseInt(t.querySelector("span").innerText);
+        if (!total.includes(visiblePrice)) {
+          total.push(visiblePrice);
+        } else if (total.includes(visiblePrice)) {
+          const index = total.indexOf(visiblePrice);
+          total.splice(index, 1);
+        }
+      }
+    });
   });
 });
 
 //checkbox for plan selection
 const chk = document.getElementById("checkBox");
 chk.addEventListener("click", () => {
-  console.log("Checkbox");
   optionsContainer.forEach((container) => {
     const yearlyPrice = container
       .querySelector(".main-container__plan__options__container__price")
@@ -256,7 +257,38 @@ chk.addEventListener("click", () => {
     filterSummary(pricesContainer);
     filterPlan();
   }
+
+  switchExtrasValuesForTheSummary();
 });
+
+function switchExtrasValuesForTheSummary() {
+  extrasContainer.forEach((i) => {
+    if (i.querySelector("input").checked !== false) {
+      total.length = 0;
+      const priceSelected = i
+        .querySelector(
+          ".main-container__extras-container__picks__container-price__monthly"
+        )
+        .querySelector("span").innerText;
+      const price = parseInt(priceSelected);
+      if (total.includes(price)) {
+        total.push(price);
+      } else {
+        const index = total.indexOf(price);
+        total.splice(index, 1);
+      }
+      i.querySelector("input").checked = false;
+    }
+  });
+  const allExtrasInTheSummary = document.querySelectorAll(
+    ".main-container__summary-container__extras-summary__extra-container"
+  );
+  allExtrasInTheSummary.forEach((c) => {
+    if (!c.classList.contains("visible")) {
+      c.classList.toggle("visible");
+    }
+  });
+}
 
 //The filter in the ticket that change the plan between monthly and yearly
 function filterPlan() {
